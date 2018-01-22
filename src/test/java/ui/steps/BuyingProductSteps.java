@@ -1,17 +1,17 @@
-package steps;
+package ui.steps;
 
 import Base.BaseUtil;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import modules.Categories;
-import modules.OfferDescription;
-import modules.OffersList;
+import ui.modules.Categories;
+import ui.modules.OfferDescription;
+import ui.modules.OffersList;
 import org.hamcrest.core.Is;
-import pages.MainAllegro;
+import ui.pages.MainAllegro;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 public class BuyingProductSteps {
@@ -51,8 +51,7 @@ public class BuyingProductSteps {
 
     @Then("^auction details page is shown$")
     public void auctionDetailsPageIsShown() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertTrue(offerDescr.checkProductPage());
     }
 
 
@@ -64,7 +63,7 @@ public class BuyingProductSteps {
 
     @When("^([^\"]*) is selected$")
     public void productIsSelected(String product) throws Throwable {
-        OfferDescription.selectProduct(product);
+        offerDescr.selectProduct(product);
     }
 
 /*    public class Subcategories {

@@ -21,3 +21,13 @@ Feature: LoginFeature
     And click login button
     Then should see userform page wrongly
 
+  Scenario: Login with incorrect username and password
+    Given opened the "http://www.allegro.pl" site
+    When click on Moje Allegro - Zaloguj sie
+    And enter following for login
+      |username | password |
+      | admin | adminpassword |
+    And click login button
+    Then should see userform error page
+
+

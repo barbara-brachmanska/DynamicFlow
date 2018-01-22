@@ -1,4 +1,4 @@
-package pages;
+package ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,13 +12,13 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(how = How.NAME, using = "UserName")
+    @FindBy(how = How.NAME, using = "username")
     public WebElement txtUserName;
 
-    @FindBy(how = How.NAME, using = "Password")
+    @FindBy(how = How.NAME, using = "password")
     public WebElement txtPassword;
 
-    @FindBy(how = How.NAME, using = "Login")
+    @FindBy(how = How.ID, using = "login-button")
     public WebElement btnLogin;
 
     public void Login(String userName, String password)

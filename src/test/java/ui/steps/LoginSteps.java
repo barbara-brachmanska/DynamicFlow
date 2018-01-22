@@ -1,8 +1,8 @@
-package steps;
+package ui.steps;
 
 import Base.BaseUtil;
-import Transformation.EmailTransform;
-import Transformation.SalaryCountTransformer;
+import ui.Transformation.EmailTransform;
+import ui.Transformation.SalaryCountTransformer;
 import cucumber.api.DataTable;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;
@@ -11,9 +11,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import pages.LoginPage;
+import ui.pages.LoginPage;
 
 import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Basia Epam on 04.01.2018.
@@ -39,7 +41,7 @@ public class LoginSteps {
         LoginPage page = new LoginPage(base.Driver);
 
         for (User user : users) {
-          page.Login(user.username, user.password);
+            page.Login(user.username, user.password);
         }
     }
 
@@ -57,7 +59,7 @@ public class LoginSteps {
     @Then("^should see userform page wrongly$")
     public void shouldSeeUserformPageWrongly() throws Throwable {
         System.out.println("wrong page");
-      //  Assert.assertEquals("It's not displayed", false , true);
+        //  Assert.assertEquals("It's not displayed", false , true);
     }
 
     @When("^enter user email address as Email:([^\"]*)$")
@@ -70,7 +72,29 @@ public class LoginSteps {
         System.out.println("my salary digit count is " + salary);
     }
 
+    @When("^click on Moje Allegro - Zaloguj sie$")
+    public void clickOnMojeAllegroZalogujSie() throws Throwable {
+        base.Driver.findElement(By.cssSelector(".opbox-metrum-header__account-name-wrapper")).click();
+        Thread.sleep(2000);
+        base.Driver.findElement(By.cssSelector(".opbox-metrum-header__account-login")).click();
+
+    }
+
+    @Then("^should see userform error page$")
+    public void shouldSeeUserformErrorPage() throws Throwable {
+        Thread.sleep(2000);
+        try {
+            assertTrue(base.Driver.findElement(By.cssSelector(".alert-danger")).isDisplayed());
+        }
+        catch (Exception e) {
+            e.getMessage();
+            System.out.println(" Error is not shown" );
+        }
+    }
+
+
     public class User {
+
         private String username;
         private String password;
 

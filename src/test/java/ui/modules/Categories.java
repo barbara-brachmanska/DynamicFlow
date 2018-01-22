@@ -1,10 +1,10 @@
-package modules;
+package ui.modules;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.AbstractPage;
+import ui.pages.AbstractPage;
 
 public class Categories extends AbstractPage {
 

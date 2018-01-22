@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/java/features"},
-        plugin = {"json:target/cucumber.json","html:target/site/cucumber-pretty"}, glue = "steps")
+        plugin = {"json:target/cucumber.json","html:target/site/cucumber-pretty"}, glue = {"ui/steps","backend/backend"})
 
 public class TestRunner {
 

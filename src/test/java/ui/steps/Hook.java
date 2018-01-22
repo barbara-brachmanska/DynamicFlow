@@ -1,4 +1,4 @@
-package steps;
+package ui.steps;
 
 import Base.BaseUtil;
 import cucumber.api.Scenario;

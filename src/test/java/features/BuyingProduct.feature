@@ -19,3 +19,4 @@ Feature: Want to search some product on www.allegro.pl
       | product |
       | 0       |
       | 1       |
+      | 2       |
